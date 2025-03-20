@@ -36,10 +36,10 @@ const mongoUri = process.env.MONGO_URI as string;
 // MongoDB Connection
 mongoose.connect(mongoUri)
   .then(() => {
-    console.log('MongoDB connected');
+    console.log('✅ MongoDB connected 🦆');
   })
   .catch(err => {
-    console.error('MongoDB connection error:', err);
+    console.error('❌ MongoDB connection error:', err);
   });
 
 export default app;
