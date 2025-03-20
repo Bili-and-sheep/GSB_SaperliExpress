@@ -62,7 +62,7 @@ api-auth/
 ```plaintext
 MONGO_URI=mongodb+srv://username:password@cluster.mongodb.net/monapi
 JWT_SECRET=super_secret
-PORT=5000
+PORT=6060
 ```
 
 ### 5️⃣ **lancer l'API**
