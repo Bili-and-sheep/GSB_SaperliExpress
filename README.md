@@ -40,7 +40,7 @@ cd api-auth
 ### 2️⃣ **Installer Node.js et Express**
 ```bash
 npm init -y
-npm install express mongoose cors dotenv bcrypt jsonwebtoken
+npm install
 ```
 
 ### 3️⃣ **Structure du projet**
@@ -67,11 +67,5 @@ PORT=5000
 
 ### 5️⃣ **lancer l'API**
 ```bash
-node server.js
-```
-
-### 5️⃣ **Relancer l'API automatiquement à chaque modif**
-```bash
-npm install -g nodemon
-nodemon server.js
+npx ts-node server.ts
 ```
