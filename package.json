@@ -1,5 +1,5 @@
 {
-  "name": "api-auth-tissot",
+  "name": "ratio-api-express",
   "version": "1.0.0",
   "description": "Cette API Express.js permet de gérer les **rapports de visite** réalisés par des **visiteurs médicaux** lors de leurs rencontres avec des **praticiens**.   Elle offre des fonctionnalités pour **ajouter, modifier, consulter et supprimer** des rapports de visite.",
   "main": "index.js",
