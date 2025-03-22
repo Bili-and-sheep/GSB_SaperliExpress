@@ -61,6 +61,7 @@ api-auth/
 ### 4️⃣ **.env**
 ```plaintext
 MONGO_URI=mongodb+srv://username:password@cluster.mongodb.net/monapi
+MONGOOSE_ENCRYPTION_SECRET=super_secret
 JWT_SECRET=super_secret
 PORT=6060
 ```
