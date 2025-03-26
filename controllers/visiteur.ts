@@ -60,7 +60,10 @@ export const login = async (req: Request, res: Response): Promise<void> => {
 
 	res.status(200).json({ visiteurId: visiteur._id, token });
   } catch (error) {
-	res.status(500).json({ error: 'Erreur interne.' });
+      console.log(error)
+	res.status(500).json({ error: 'Erreur interne.' })
+
+    ;
   }
 };
 
