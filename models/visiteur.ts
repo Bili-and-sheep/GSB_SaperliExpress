@@ -5,14 +5,14 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 interface IVisiteur extends Document {
-    nom?: string;
-    prenom?: string;
-    tel?: string;
+    nom: string;
+    prenom: string;
+    tel: string;
     email: string;
-    emailHash?: string;
-    date_embauche?: Date;
+    emailHash: string;
+    date_embauche: Date;
     password: string;
-    visites?: string[];
+    visites: string[];
   }
   
   const visiteurSchema = new Schema<IVisiteur>({
@@ -60,7 +60,7 @@ if (!secret) {
 
 visiteurSchema.plugin(mongooseEncryption, {
   secret: secret,
-  encryptedFields: ['nom', 'prenom', 'tel', 'email', 'date_embauche']
+  encryptedFields: ['nom', 'prenom', 'tel', 'date_embauche']
 });
 
 const Visiteur = model<IVisiteur>('Visiteur', visiteurSchema);
