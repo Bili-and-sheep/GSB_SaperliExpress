@@ -11,6 +11,7 @@ export const createPraticien = asyncHandler(async (req: Request, res: Response) 
 
 // Récupération de tous les praticiens
 export const getPraticiens = asyncHandler(async (_req: Request, res: Response) => {
-  const praticiens = await Praticien.find();
+  const praticiens = await Praticien.find().populate('visites');
   res.status(200).json(praticiens);
 });
+
