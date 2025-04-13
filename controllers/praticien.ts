@@ -9,9 +9,16 @@ export const createPraticien = asyncHandler(async (req: Request, res: Response) 
   res.status(201).json(savedPraticien);
 });
 
-// Récupération de tous les praticiens
 export const getPraticiens = asyncHandler(async (_req: Request, res: Response) => {
-  const praticiens = await Praticien.find().populate('visites');
+  const praticiens = await Praticien.find()
+      .populate({
+        path: 'visites',
+        populate: [
+          { path: 'visiteur', model: 'Visiteur' },
+          { path: 'motif', model: 'Motif' }
+        ]
+      })
   res.status(200).json(praticiens);
 });
+
 
