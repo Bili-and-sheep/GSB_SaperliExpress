@@ -13,7 +13,8 @@ interface IVisiteur extends Document {
     date_embauche: Date;
     password: string;
     visites: string[];
-  }
+    praticiens: Schema.Types.ObjectId[];
+}
   
   const visiteurSchema = new Schema<IVisiteur>({
     nom: {
@@ -49,7 +50,8 @@ interface IVisiteur extends Document {
     visites: [{
       type: Schema.Types.ObjectId,
       ref: 'Visite'
-    }]
+    }],
+    praticiens: [{ type: Schema.Types.ObjectId, ref: 'Praticien' }],
   });
   
 // Vérification de la clé secrète
