@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import visiteurRoutes from './routes/visiteur';
+import portefeuilleRoutes from './routes/portefeuille';
 import motifRoutes from './routes/motif';
 import praticienRoutes from './routes/praticien';
 import visiteRoutes from './routes/visite';
@@ -25,6 +26,7 @@ app.use((req, res, next) => {
 
 // Routes
 app.use('/api/visiteurs', visiteurRoutes);
+app.use('/api/portefeuille', portefeuilleRoutes);
 app.use('/api/motifs', motifRoutes);
 app.use('/api/praticiens', praticienRoutes);
 app.use('/api/visites', visiteRoutes);
