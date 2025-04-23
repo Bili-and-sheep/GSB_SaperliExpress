@@ -55,15 +55,15 @@ interface IVisiteur extends Document {
   });
   
 // Vérification de la clé secrète
-const secret = process.env.MONGOOSE_ENCRYPTION_SECRET;
-if (!secret) {
-  throw new Error('La variable MONGOOSE_ENCRYPTION_SECRET n\'est pas définie.');
-}
-
-visiteurSchema.plugin(mongooseEncryption, {
-  secret: secret,
-  encryptedFields: ['nom', 'prenom', 'tel', 'date_embauche']
-});
+// const secret = process.env.MONGOOSE_ENCRYPTION_SECRET;
+// if (!secret) {
+//   throw new Error('La variable MONGOOSE_ENCRYPTION_SECRET n\'est pas définie.');
+// }
+//
+// visiteurSchema.plugin(mongooseEncryption, {
+//   secret: secret,
+//   encryptedFields: ['nom', 'prenom', 'tel', 'date_embauche']
+// });
 
 const Visiteur = model<IVisiteur>('Visiteur', visiteurSchema);
 export default Visiteur;

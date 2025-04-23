@@ -4,9 +4,10 @@ import {
   getVisiteurs,
   getVisiteurById,
   deleteVisiteur,
-  signup, 
-  login, 
-  signupValidators
+  signup,
+  login,
+  signupValidators,
+
 } from '../controllers/visiteur';
 
 const router = express.Router();

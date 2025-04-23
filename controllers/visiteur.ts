@@ -5,6 +5,7 @@ import { body, validationResult } from 'express-validator';
 import bcrypt from 'bcrypt';
 import crypto from 'crypto';
 import jwt from 'jsonwebtoken';
+import Visite from "../models/visite";
 
 export const signupValidators = [
   body('email').isEmail().withMessage('Veuillez entrer un email valide.').normalizeEmail(),
@@ -18,13 +19,19 @@ export const signup = async (req: Request, res: Response): Promise<void> => {
 	return;
   }
 
-  const { email, password } = req.body;
+  const { email, password, nom, prenom } = req.body;
   const hashedPassword = await bcrypt.hash(password, 10);
   const hashedEmail = crypto.createHash('sha256').update(email).digest('hex');
   console.log('Request body:', req.body);
 
   try {
-	const visiteur = new Visiteur({ email, password: hashedPassword, emailHash: hashedEmail });
+      const visiteur = new Visiteur({
+          email,
+          password: hashedPassword,
+          emailHash: hashedEmail,
+          nom,
+          prenom
+      });
 	await visiteur.save();
 	res.status(201).json({ message: 'Visiteur créé !' });
   } catch (error) {
@@ -58,7 +65,18 @@ export const login = async (req: Request, res: Response): Promise<void> => {
   	{ expiresIn: '24h' }
 	);
 
-	res.status(200).json({ visiteurId: visiteur._id, token });
+    console.log(
+        'Visiteur trouvé : ', visiteur._id,
+        'Token:', token,
+        'Nom:', visiteur.nom,
+        'Prénom:', visiteur.prenom,
+    );
+      res.status(200).json({
+          visiteurId: visiteur._id,
+          nom: visiteur.nom,
+          prenom: visiteur.prenom,
+          token
+      });
   } catch (error) {
       console.log(error)
 	res.status(500).json({ error: 'Erreur interne.' })
@@ -147,3 +165,4 @@ export const deleteVisiteur = asyncHandler(async (req: Request, res: Response): 
 
   res.status(200).json({ message: 'Visiteur supprimé avec succès' });
 });
+
