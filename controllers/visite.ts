@@ -50,3 +50,29 @@ export const updateVisite = asyncHandler(async (req: Request, res: Response) => 
 
   res.status(200).json(updated);
 });
+
+// Suppression d'une visite
+export const deleteVisite = asyncHandler(async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const deleted = await Visite.findByIdAndDelete(id);
+
+  if (!deleted) {
+    res.status(404).json({ message: "Visite non trouvée" });
+    return;
+  }
+
+  res.status(200).json({ message: "Visite supprimée" });
+});
+
+// Récupération d'une visite par ID
+export const getVisiteById = asyncHandler(async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const visite = await Visite.findById(id).populate('visiteur praticien motif');
+
+  if (!visite) {
+    res.status(404).json({ message: "Visite non trouvée" });
+    return;
+  }
+
+  res.status(200).json(visite);
+});
