@@ -70,3 +70,7 @@ PORT=6060
 ```bash
 npx ts-node server.ts
 ```
+
+### 6️⃣ **Test avec Postman**
+#### Import le collection Postman
+#### [Collection Postman.json](./GSB_postman_collection.json)

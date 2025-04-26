@@ -1,0 +1,766 @@
+{
+	"info": {
+		"_postman_id": "55aadf72-820d-4df1-b30d-7ebc0aea0d1a",
+		"name": "GSB",
+		"description": "### Description de l'API Testée avec Postman\n\nCette API permet de réaliser des opérations \\[préciser le domaine ou les fonctionnalités, ex. : \"de gestion des utilisateurs\", \"de suivi des commandes\", etc.\\].\n\nElle est organisée autour de plusieurs endpoints principaux :\n\n1. { \"clé\": \"valeur\"}\n    \n    - **Méthode** : \\[GET/POST/PUT/DELETE\\].\n        \n    - **Paramètres requis** : \\[Lister les paramètres importants\\].\n        \n    - **Exemple de réponse** :\n        \n2. **\\[Nom d'un autre endpoint\\]** : \\[Fonctionnalité\\].\n    \n    - Etc.\n        \n\n#### Tests réalisés avec Postman\n\n- **Validation des réponses** : Vérification des codes de statut HTTP (200, 400, 404, etc.).\n    \n- **Tests automatisés** : Utilisation de scripts pour vérifier le contenu des réponses.\n    \n- **Scénarios multi-appels** : Tests de la chaîne complète d'appels pour simuler un cas d'utilisation réel.\n    \n\nCe processus garantit que l'API répond de manière fiable et respecte les spécifications attendues.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35372569"
+	},
+	"item": [
+		{
+			"name": "Visiteur",
+			"item": [
+				{
+					"name": "postLogin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n  \"email\": \"jean.dupont@example.com\",\r\n  \"password\": \"securePassword123\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/visiteurs/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"visiteurs",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postSignup",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nom\": \"Dupont\",\n  \"prenom\": \"Jean4\",\n  \"tel\": \"0102030405\",\n  \"email\": \"jean.dupont@example4.com\",\n  \"date_embauche\": \"2020-05-15T00:00:00Z\",\n  \"password\": \"securePassword123\",\n  \"visites\": []\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/visiteurs/signup",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"visiteurs",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getVisiteurById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/visiteurs/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"visiteurs",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "680b51cc01293aceb633d68b"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Motif",
+			"item": [
+				{
+					"name": "getMotifs",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"_id\": \"67f793af58b327a1853e1cbb\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/motifs",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"motifs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createMotif",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"libelle\": \"Pierre Chartier X2007 - Head of trading Vol & Hybrid\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/motifs",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"motifs"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Practicien",
+			"item": [
+				{
+					"name": "getPracticien",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/praticiens/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"praticiens",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createPracticien",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nom\": \"Jonh\",\n  \"prenom\": \"Doe\",\n  \"tel\": \"0123456789\",\n  \"email\": \"jonh.doe@example.com\",\n  \"rue\": \"10 Rue de Paris\",\n  \"code_postal\": \"75000\",\n  \"ville\": \"Paris\",\n  \"visites\": []\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/praticiens",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"praticiens"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPraticienByVisiteur",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/praticiens/byVisiteur/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"praticiens",
+								"byVisiteur",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "680b51cc01293aceb633d68b"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Visite",
+			"item": [
+				{
+					"name": "getVisites",
+					"request": {
+						"auth": {
+							"type": "jwt",
+							"jwt": [
+								{
+									"key": "secret",
+									"value": "super_secret",
+									"type": "string"
+								},
+								{
+									"key": "algorithm",
+									"value": "HS256",
+									"type": "string"
+								},
+								{
+									"key": "isSecretBase64Encoded",
+									"value": false,
+									"type": "boolean"
+								},
+								{
+									"key": "payload",
+									"value": "{}",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "headerPrefix",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "queryParamKey",
+									"value": "token",
+									"type": "string"
+								},
+								{
+									"key": "header",
+									"value": "{}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/visites",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"visites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createVisite",
+					"request": {
+						"auth": {
+							"type": "jwt",
+							"jwt": [
+								{
+									"key": "secret",
+									"value": "super_secret",
+									"type": "string"
+								},
+								{
+									"key": "algorithm",
+									"value": "HS256",
+									"type": "string"
+								},
+								{
+									"key": "isSecretBase64Encoded",
+									"value": false,
+									"type": "boolean"
+								},
+								{
+									"key": "payload",
+									"value": "{}",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "headerPrefix",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "queryParamKey",
+									"value": "token",
+									"type": "string"
+								},
+								{
+									"key": "header",
+									"value": "{}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"date_visite\": \"2025-04-10T10:00:00Z\",\n  \"commentaire\": \"LE TEST\",\n  \"visiteur\": \"680b51cc01293aceb633d68b\",  \n  \"praticien\": \"680b520601293aceb633d691\", \n  \"motif\": \"680bb82021698ee3b94d72e2\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/visites",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"visites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lister visites par praticien",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/visites/vbyp?praticienId=680b520601293aceb633d691",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"visites",
+								"vbyp"
+							],
+							"query": [
+								{
+									"key": "praticienId",
+									"value": "680b520601293aceb633d691"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modifier une visite",
+					"request": {
+						"auth": {
+							"type": "jwt",
+							"jwt": [
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "secret",
+									"value": "super_secret",
+									"type": "string"
+								},
+								{
+									"key": "algorithm",
+									"value": "HS256",
+									"type": "string"
+								},
+								{
+									"key": "isSecretBase64Encoded",
+									"value": false,
+									"type": "boolean"
+								},
+								{
+									"key": "payload",
+									"value": "{}",
+									"type": "string"
+								},
+								{
+									"key": "headerPrefix",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "queryParamKey",
+									"value": "token",
+									"type": "string"
+								},
+								{
+									"key": "header",
+									"value": "{}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"commentaire\": \"modifier\",\n  \"date\": \"2025-04-23T14:00:00.000Z\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/visites/updateVisite/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"visites",
+								"updateVisite",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "680ca4a37b793cfd2561b57c"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteVisite",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/visites/deletevisite/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"visites",
+								"deletevisite",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "680ca4a37b793cfd2561b57c"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getVisitesByID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/visites/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"visites",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "680bb86321698ee3b94d72e8"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "portefeuille",
+			"item": [
+				{
+					"name": "getPortefeuille",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/portefeuille",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"portefeuille"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createPortefeuille",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"praticien_id\": \"680bf05ee96d19353a3208ea\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/portefeuille/add",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"portefeuille",
+								"add"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "localhost:3000",
+			"type": "string"
+		}
+	]
+}
